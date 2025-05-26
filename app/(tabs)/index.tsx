@@ -10,24 +10,23 @@ import {
 
 import { fetchMovies } from "@/services/api";
 import useFetch from "@/services/useFetch";
-// import { getTrendingMovies } from "@/services/appwrite";
 
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 
 import MovieCard from "@/components/MovieCard";
 import SearchBar from "@/components/SearchBar";
-// import MovieCard from "@/components/MovieCard";
-// import TrendingCard from "@/components/TrendingCard";
+import TrendingCard from "@/components/TrendingCard";
+import { getTrendingMovies } from "@/services/appwrite";
 
 const Index = () => {
   const router = useRouter();
 
-  // const {
-  //   data: trendingMovies,
-  //   loading: trendingLoading,
-  //   error: trendingError,
-  // } = useFetch(getTrendingMovies);
+  const {
+    data: trendingMovies,
+    loading: trendingLoading,
+    error: trendingError,
+  } = useFetch(getTrendingMovies);
 
   const {
     data: movies,
@@ -67,7 +66,7 @@ const Index = () => {
               placeholder="Search for a movie"
             />
 
-            {/* {trendingMovies && (
+            {trendingMovies && (
               <View className="mt-10">
                 <Text className="text-lg text-white font-bold mb-3">
                   Trending Movies
@@ -87,7 +86,7 @@ const Index = () => {
                   ItemSeparatorComponent={() => <View className="w-4" />}
                 />
               </View>
-            )} */}
+            )}
 
             <>
               <Text className="text-lg text-white font-bold mt-5 mb-3">
